@@ -3,8 +3,8 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\AddressController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizationController;
 
 /*
@@ -49,4 +49,8 @@ Route::middleware([
         Route::get('/create', [OrganizationController::class, 'create'])->name('organization.create');
         Route::post('/create/store', [OrganizationController::class, 'store'])->name('organization.store');
     });
+
+    Route::get('contact/view', [ContactController::class, 'index'])->name('contact.view');
 });
+
+Route::get('contact/show', [ContactController::class, 'contact'])->name('contact.show');

@@ -355,7 +355,7 @@ const logout = () => {
                     <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a :href="route('contact.view')" class="hover:underline">Contact</a>
                 </li>
             </ul>
             <div class="flex justify-center items-center space-x-1">
