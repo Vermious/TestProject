@@ -332,7 +332,7 @@ const logout = () => {
                             </dl>
                         </div>
                     </div>
-                </div>
+            </div>
 
             <!-- Page Content -->
             <main>
@@ -413,4 +413,5 @@ const logout = () => {
         </div>
     </footer>
 
-</div></template>
+</div>
+</template>
