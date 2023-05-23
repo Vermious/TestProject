@@ -12,7 +12,7 @@ const form = useForm({
     name: '',
     last_name: '',
     email: '',
-    ranking: 0.0000,
+    ranking: '',
     date_of_birth: '',
     gender: '',
     password: '',
@@ -78,17 +78,13 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="ranking" value="Ranking" />
-                <TextInput
-                    id="ranking"
-                    v-model="form.ranking"
-                    type="number"
-                    step="0.0001"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="ranking"
-                />
+                <InputLabel for="rank" value="Rank" />
+                <select v-model="form.ranking" name="rank" id="rank" class="mt-1 block w-full">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Expert">Expert</option>
+                </select>
                 <InputError class="mt-2" :message="form.errors.ranking" />
             </div>
 
@@ -108,15 +104,11 @@ const submit = () => {
 
             <div class="mt-4">
                 <InputLabel for="gender" value="Gender" />
-                <TextInput
-                    id="gender"
-                    v-model="form.gender"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="gender"
-                />
+                <select v-model="form.gender" name="gender" id="gender" class="mt-1 block w-full">
+                    <option value="Man">Man</option>
+                    <option value="Vrouw">Vrouw</option>
+                    <option value="Anders">Anders</option>
+                </select>
                 <InputError class="mt-2" :message="form.errors.gender" />
             </div>
 

@@ -24,9 +24,9 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'ranking' => $this->faker->randomFloat(4, 1, 9),
+            'ranking' => $this->faker->randomElement(['Beginner', 'Intermediate', 'Advanced', 'Expert']),
             'date_of_birth' => now(),
-            'gender' => $this->faker->word(),
+            'gender' => $this->faker->randomElement(['Man', 'Vrouw', 'Anders']),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,

@@ -33,7 +33,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                     </svg>
 
                     <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        <a href="http://localhost:82/bookings/view">Zoek hier je padelbuddie</a>
+                        <a :href="route('booking.view')">Zoek hier je padelbuddie</a>
                     </h2>
                 </div>
 
@@ -42,7 +42,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                 </p>
 
                 <p class="mt-4 text-sm">
-                    <a href="http://localhost:82/bookings/create" class="inline-flex items-center font-semibold text-indigo-700">
+                    <a :href="route('booking.create')" class="inline-flex items-center font-semibold text-indigo-700">
                         Boek padelbaan
 
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ml-1 w-5 h-5 fill-indigo-500">
@@ -64,7 +64,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                 </div>
 
                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Ut enim ad minima veniam, quis nostrum exercitationem ullam.
+                    Coming soon!
                 </p>
 
                 <p class="mt-4 text-sm">
@@ -90,7 +90,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                 </div>
 
                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Coming soon!
                 </p>
             </div>
 
@@ -106,7 +106,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                 </div>
 
                 <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    Coming soon!
                 </p>
             </div>
         </div>
