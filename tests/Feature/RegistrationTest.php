@@ -53,7 +53,7 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
-            'ranking' => 1.6125,
+            'ranking' => 'Beginner',
             'date_of_birth' => Carbon::now(),
             'gender' => 'Male',
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
