@@ -320,8 +320,8 @@ const logout = () => {
                     </div>
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl lg:mx-0">
-                            <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Padelbuddies</h2>
-                            <p class="mt-6 text-lg leading-8 text-gray-300">Heb jij geen mede padelspelers en wil jij 
+                            <h2 class="text-4xl font-bold tracking-tight text-black sm:text-6xl">Padelbuddies</h2>
+                            <p class="mt-6 text-lg leading-8 text-neutral-100">Heb jij geen mede padelspelers en wil jij 
                                 samen padel spelen? Gebruik onze webapp voor het vinden van medespelers of registreer voor een lokaal evenement!</p>
                         </div>
                         <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -344,7 +344,7 @@ const logout = () => {
         <footer
             class="bg-white rounded-lg shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800">
             <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
-                &copy; 2023 <a href="http://localhost:82/dashboard" class="hover:underline" target="_blank">padelbuddies</a>.
+                &copy; 2023 <a :href="route('dashboard')" class="hover:underline" target="_blank">padelbuddies</a>.
                 All rights reserved.
             </p>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
