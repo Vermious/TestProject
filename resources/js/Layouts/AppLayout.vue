@@ -43,7 +43,7 @@ const logout = () => {
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <img class="block h-12 w-auto" src="http://localhost:82/assets/images/logo.jpeg" />
+                                    <img class="block h-12 w-auto" src="/assets/images/logo.jpeg" />
                                 </Link>
                             </div>
 
