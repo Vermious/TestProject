@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Service\Contact;
+namespace App\Services\Contact;
+
+use App\Http\Requests\CreateContactRequest;
 
 interface ContactServiceInterface
 {
-    public function storeContact(): void;
+    public function storeContact(CreateContactRequest $request): void;
 }

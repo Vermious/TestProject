@@ -50,7 +50,12 @@ Route::middleware([
         Route::post('/create/store', [OrganizationController::class, 'store'])->name('organization.store');
     });
 
-    Route::get('contact/view', [ContactController::class, 'index'])->name('contact.view');
+    Route::prefix('contact')->group(function (){
+        Route::get('/view', [ContactController::class, 'index'])->name('contact.view');
+        Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
+    });
+
 });
 
 Route::get('contact/show', [ContactController::class, 'contact'])->name('contact.show');
+Route::post('cantact/store', [ContactController::class, 'store'])->name('contact.send');

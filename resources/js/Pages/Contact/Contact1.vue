@@ -1,5 +1,6 @@
 <template>
         <!-- ====== Contact Section Start -->
+        <jet-form-section @submitted="storeContactInfo()">
         <section class="relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]">
             <div class="container mx-auto">
                 <div class="-mx-4 flex flex-wrap lg:justify-between">
@@ -14,7 +15,7 @@
                         KOM MET ONS IN CONTACT
                     </h2>
                     <p class="text-body-color mb-9 text-base leading-relaxed">
-                        Heb je vragen of opmerkingen voor PadelBuddies, neem dan gerust contact met ons op. Wij 
+                        Heb je vragen, opmerkingen of feedback voor PadelBuddies, neem dan gerust contact met ons op. Wij 
                         helpen u graag verder.
                     </p>
                     <div class="mb-8 flex w-full max-w-[370px]">
@@ -92,6 +93,7 @@
                     <form>
                         <div class="mb-6">
                         <input
+                            v-model="form.name"
                             type="text"
                             placeholder="Uw Naam"
                             class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
@@ -99,6 +101,7 @@
                         </div>
                         <div class="mb-6">
                         <input
+                            v-model="form.email"
                             type="email"
                             placeholder="Uw Email"
                             class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
@@ -106,6 +109,7 @@
                         </div>
                         <div class="mb-6">
                         <input
+                            v-model="form.subject"
                             type="text"
                             placeholder="Onderwerp"
                             class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
@@ -113,6 +117,7 @@
                         </div>
                         <div class="mb-6">
                         <textarea
+                            v-model="form.message"
                             rows="6"
                             placeholder="Uw vraag of opmerking"
                             class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
@@ -120,8 +125,10 @@
                         </div>
                         <div>
                         <button
+                            @click="storeContactInfo()"
                             type="submit"
-                            class="bg-primary border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90"
+                            class="bg-blue-500 hover:bg-blue-700 w-full rounded border p-3 text-white transition hover:bg-opacity-90"
+                            
                         >
                             Verstuur bericht
                         </button>
@@ -940,6 +947,7 @@
                 </div>
             </div>
         </section>
+    </jet-form-section>
         <!-- ====== Contact Section End -->
 
         <footer
@@ -1014,3 +1022,39 @@
             </div>
         </footer>
 </template>
+
+<script>
+ export default{
+        props:{
+          
+        },
+        data() {
+            return {
+                form: this.$inertia.form({
+                    _method: "POST",
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: '',
+                }),
+            }
+        },
+        methods:{
+            storeContactInfo(){
+                this.form.post(route('contact.send'), {
+                    onSucces: (response) => {
+                        this.form.name = response.name;
+                        this.form.email = response.email; 
+                        this.form.subject = response.subject;
+                        this.form.message = response.message;
+                    },
+                });
+                
+                this.form.name = '';
+                this.form.email = '';
+                this.form.subject = '';
+                this.form.message = '';
+            }
+        },
+    }
+</script>

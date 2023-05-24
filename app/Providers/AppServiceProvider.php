@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Service\Contact\ContactService;
+use App\Services\Contact\ContactService;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Booking\BookingService;
-use App\Service\Contact\ContactServiceInterface;
+use App\Services\Contact\ContactServiceInterface;
 use App\Services\Booking\BookingServiceInterface;
 use App\Services\Organization\OrganizationService;
 use App\Services\Organization\OrganizationServiceInterface;
