@@ -89,7 +89,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="date_of_birth" value="geboorte datum" />
+                <InputLabel for="date_of_birth" value="Geboorte datum" />
                 <TextInput
                     id="date_of_birth"
                     v-model="form.date_of_birth"

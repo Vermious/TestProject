@@ -43,7 +43,7 @@ const logout = () => {
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <img class="block h-12 w-auto" src="http://localhost:82/assets/images/logo.jpeg" />
+                                    <img class="block h-12 w-auto" src="/assets/images/logo.jpeg" />
                                 </Link>
                             </div>
 
@@ -355,7 +355,7 @@ const logout = () => {
                     <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a :href="route('contact.view')" class="hover:underline">Contact</a>
                 </li>
             </ul>
             <div class="flex justify-center items-center space-x-1">
