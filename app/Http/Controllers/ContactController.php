@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Http\Requests\CreateContactRequest;
 use App\Services\Contact\ContactServiceInterface;
+use Illuminate\Http\RedirectResponse;
 
 class ContactController extends Controller
 {
@@ -19,9 +20,13 @@ class ContactController extends Controller
         return Inertia::render('Contact/Contact1');
     }
 
-    public function store(ContactServiceInterface $contactService, CreateContactRequest $request): void
+    public function store(ContactServiceInterface $contactService, CreateContactRequest $request): RedirectResponse
     {
         $contactService->storeContact($request);
+
+        return redirect()
+            ->back()
+            ->with('message', 'Het fomulier is succesvol verzonden');
     }
 
     // Also temp, same as above

@@ -1,4 +1,9 @@
 <template>
+    <div v-if="$page.props.flash.message" class="bg-lime-100 border border-lime-400 text-lime-700 px-4 py-3 rounded relative"  role="alert">
+      <strong class="font-bold">Success </strong>
+      <span class="block sm:inline"> {{ $page.props.flash.message }} </span>
+    </div>
+    
     <AppLayout>
         <div class="w-full mb-12 xl:mb-0 mx-auto mt-2">
         <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">

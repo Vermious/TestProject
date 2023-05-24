@@ -52,7 +52,7 @@ class ContactTest extends TestCase
         // When
         $response = $this->actingAs($this->user)
             ->post($url, $data)
-            ->assertStatus(200);
+            ->assertStatus(302);
 
         // Then
         $response->assertSessionHasNoErrors();

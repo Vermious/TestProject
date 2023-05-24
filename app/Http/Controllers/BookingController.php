@@ -31,7 +31,9 @@ class BookingController extends Controller
     {
         $bookingServiceInterface->storeBooking($request);
 
-        return redirect()->route('booking.view');
+        return redirect()
+            ->route('booking.view')
+            ->with('message', 'Boeking is succesvol geregistreerd');
     }
 
     public function edit(BookingServiceInterface $bookingServiceInterface, string $uuid): Response
@@ -47,6 +49,8 @@ class BookingController extends Controller
     {
         $bookingServiceInterface->updateBooking($request, $uuid);
 
-        return redirect()->route('booking.view');
+        return redirect()
+            ->route('booking.view')
+            ->with('message', 'Boeking is succesvol gewijzigd');
     }
 }

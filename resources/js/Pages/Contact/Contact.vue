@@ -1,4 +1,8 @@
 <template>
+    <div v-if="$page.props.flash.message" class="bg-lime-100 border border-lime-400 text-lime-700 px-4 py-3 rounded relative"  role="alert">
+        <strong class="font-bold">Success </strong>
+        <span class="block sm:inline"> {{ $page.props.flash.message }} </span>
+    </div>
     <AppLayout>
         <!-- ====== Contact Section Start -->
         <jet-form-section @submitted="storeContactInfo()">
@@ -984,10 +988,10 @@
                     },
                 });
                 
-                this.form.name = '';
-                this.form.email = '';
-                this.form.subject = '';
-                this.form.message = '';
+                // this.form.name = '';
+                // this.form.email = '';
+                // this.form.subject = '';
+                // this.form.message = '';
             }
         },
     }

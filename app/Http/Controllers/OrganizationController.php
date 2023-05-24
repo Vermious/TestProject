@@ -30,6 +30,8 @@ class OrganizationController extends Controller
     {
         $organziationService->storeOrganization($request);
 
-        return redirect()->route('organization.view');
+        return redirect()
+            ->route('organization.view')
+            ->with('message', 'De organisatie is succesvol geregistreerd');
     }
 }

@@ -1,5 +1,9 @@
 <template>
         <!-- ====== Contact Section Start -->
+        <div v-if="$page.props.flash.message" class="bg-lime-100 border border-lime-400 text-lime-700 px-4 py-3 rounded relative"  role="alert">
+            <strong class="font-bold">Success </strong>
+            <span class="block sm:inline"> {{ $page.props.flash.message }} </span>
+        </div>
         <jet-form-section @submitted="storeContactInfo()">
         <section class="relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]">
             <div class="container mx-auto">
