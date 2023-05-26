@@ -19,7 +19,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
 
       - name: Check if composer.json exists
         id: check_files
@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'padelbuddies-test'
           slot-name: 'Development'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BE49FD4098F4EE59DDBC06BA9796265 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
