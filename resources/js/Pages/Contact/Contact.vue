@@ -988,10 +988,10 @@
                     },
                 });
                 
-                // this.form.name = '';
-                // this.form.email = '';
-                // this.form.subject = '';
-                // this.form.message = '';
+                this.form.name = '';
+                this.form.email = '';
+                this.form.subject = '';
+                this.form.message = '';
             }
         },
     }
