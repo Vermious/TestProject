@@ -11,7 +11,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                     <AppLogo />
                 </div>
                 <div>
-                    <div class="text-5xl">Padelbuddies</div>
+                    <div class="text-5xl">PadelBuddies</div>
                 </div>
             </div>
             

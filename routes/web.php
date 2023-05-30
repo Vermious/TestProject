@@ -57,5 +57,13 @@ Route::middleware([
 
 });
 
-Route::get('contact/show', [ContactController::class, 'contact'])->name('contact.show');
+// Buiten de applicatie toegankelijke routes
+
+    // contact page
+Route::get('contact/show', function () {
+    return Inertia::render('Contact/Contact1', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+    ]);
+})->name('contact.show');
 Route::post('cantact/store', [ContactController::class, 'store'])->name('contact.send');

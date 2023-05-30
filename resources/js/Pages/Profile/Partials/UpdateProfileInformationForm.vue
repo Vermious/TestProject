@@ -205,14 +205,12 @@ const clearPhotoFileInput = () => {
             <!-- Gender -->
             <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="gender" value="Gender" />
-                <TextInput
-                    id="gender"
-                    v-model="form.gender"
-                    type="text"
-                    class="mt-1 block w-full"
-                    autocomplete="gender"
-                />
-                <InputError :message="form.errors.gender" class="mt-2" />
+                <select v-model="form.gender" name="gender" id="gender" class="mt-1 block w-full">
+                    <option value="Man">Man</option>
+                    <option value="Vrouw">Vrouw</option>
+                    <option value="Anders">Anders</option>
+                </select>
+                <InputError class="mt-2" :message="form.errors.gender" />
             </div>
         </template>
 
