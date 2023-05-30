@@ -1193,7 +1193,7 @@
                         this.form.message = response.message;
                     },
                 });
-            }
+            },
         },
     }
 </script>

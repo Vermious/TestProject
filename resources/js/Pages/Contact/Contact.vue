@@ -988,14 +988,14 @@
         methods:{
             storeContactInfo(){
                 this.form.post(route('contact.store'), {
-                    onSucces: (response) => {
+                    onSuccess: (response) => {
                         this.form.name = response.name;
                         this.form.email = response.email; 
                         this.form.subject = response.subject;
                         this.form.message = response.message;
                     },
                 });
-            }
+            },
         },
     }
 </script>
