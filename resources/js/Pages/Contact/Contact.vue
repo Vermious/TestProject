@@ -993,11 +993,6 @@
                         this.form.email = response.email; 
                         this.form.subject = response.subject;
                         this.form.message = response.message;
-
-                        // this.form.name = '';
-                        // this.form.email = '';
-                        // this.form.subject = '';
-                        // this.form.message = '';
                     },
                 });
             }
