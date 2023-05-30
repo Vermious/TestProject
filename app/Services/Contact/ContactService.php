@@ -9,14 +9,16 @@ class ContactService implements ContactServiceInterface
 {
     public function storeContact(CreateContactRequest $request): void
     {
-        //dd($request->all());
+        $validated = $request->validated();
+
+        $validated = $request->safe()->only('name', 'email', 'subject', 'message');
 
         $contact = new Contact();
 
-        $contact->name = $request->get('name');
-        $contact->email = $request->get('email');
-        $contact->subject = $request->get('subject');
-        $contact->message = $request->get('message');
+        $contact->name = $validated['name'];
+        $contact->email = $validated['email'];
+        $contact->subject = $validated['subject'];
+        $contact->message = $validated['message'];
 
         $contact->save();
     }

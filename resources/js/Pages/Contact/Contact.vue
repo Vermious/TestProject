@@ -97,43 +97,50 @@
                 <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
                     <div class="relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
                         <div class="mb-6">
-                        <input
-                            v-model="form.name"
-                            type="text"
-                            placeholder="Uw Naam"
-                            class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
-                        />
-                        </div>
-                        <div class="mb-6">
-                        <input
-                            v-model="form.email"
-                            type="email"
-                            placeholder="Uw Email"
-                            class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
-                        />
-                        </div>
-                        <div class="mb-6">
-                        <input
-                            v-model="form.subject"
-                            type="text"
-                            placeholder="Onderwerp"
-                            class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
-                        />
-                        </div>
-                        <div class="mb-6">
-                        <textarea
-                            v-model="form.message"
-                            rows="6"
-                            placeholder="Uw vraag of opmerking"
-                            class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
-                        ></textarea>
-                        </div>
+                                <input
+                                    v-model="form.name"
+                                    type="text"
+                                    placeholder="Uw Naam"
+                                    required
+                                    class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                                />
+                                <InputError class="mt-2" :message="form.errors.name" />
+                            </div>
+                            <div class="mb-6">
+                                <input
+                                    v-model="form.email"
+                                    type="email"
+                                    placeholder="Uw Email"
+                                    required
+                                    class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                                />
+                                <InputError class="mt-2" :message="form.errors.email" />
+                            </div>
+                            <div class="mb-6">
+                                <input
+                                    v-model="form.subject"
+                                    type="text"
+                                    placeholder="Onderwerp"
+                                    required
+                                    class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                                />
+                                <InputError class="mt-2" :message="form.errors.subject" />
+                            </div>
+                            <div class="mb-6">
+                                <textarea
+                                    v-model="form.message"
+                                    rows="6"
+                                    placeholder="Uw vraag of opmerking"
+                                    required
+                                    class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                                ></textarea>
+                                <InputError class="mt-2" :message="form.errors.message" />
+                            </div>
                         <div>
                         <button
                             @click="storeContactInfo()"
                             type="submit"
                             class="bg-blue-500 hover:bg-blue-700 w-full rounded border p-3 text-white transition hover:bg-opacity-90"
-                            
                         >
                             Verstuur bericht
                         </button>
@@ -959,6 +966,7 @@
 
 <script setup>
     import AppLayout from '@/Layouts/AppLayout.vue'
+    import InputError from '@/Components/InputError.vue';
 </script>
 
 <script>
@@ -985,13 +993,13 @@
                         this.form.email = response.email; 
                         this.form.subject = response.subject;
                         this.form.message = response.message;
+
+                        // this.form.name = '';
+                        // this.form.email = '';
+                        // this.form.subject = '';
+                        // this.form.message = '';
                     },
                 });
-                
-                this.form.name = '';
-                this.form.email = '';
-                this.form.subject = '';
-                this.form.message = '';
             }
         },
     }

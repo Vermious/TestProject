@@ -14,12 +14,6 @@ class ContactController extends Controller
         return Inertia::render('Contact/Contact');
     }
 
-    // Temp fix this as fast as possible (its a ugly fix...)
-    public function contact()
-    {
-        return Inertia::render('Contact/Contact1');
-    }
-
     public function store(ContactServiceInterface $contactService, CreateContactRequest $request): RedirectResponse
     {
         $contactService->storeContact($request);
@@ -29,9 +23,13 @@ class ContactController extends Controller
             ->with('message', 'Het fomulier is succesvol verzonden');
     }
 
-    // Also temp, same as above
-    public function send(ContactServiceInterface $contactService, CreateContactRequest $request): void
+    // Temp way of store contact info oustide the apllication
+    public function send(ContactServiceInterface $contactService, CreateContactRequest $request): RedirectResponse
     {
         $contactService->storeContact($request);
+
+        return redirect()
+            ->back()
+            ->with('message', 'Het fomulier is succesvol verzonden');
     }
 }

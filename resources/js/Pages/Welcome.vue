@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3';
 import AppLogo from '@/CustomComponents/Logo.vue';
 import HeaderImage from '@/CustomComponents/HeaderImage.vue';
+import NavLink from '@/Components/NavLink.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -12,13 +13,27 @@ defineProps({
 </script>
 
 <template>
-        <Head title="Welcome" />
+        <Head title="PadelBuddies" />
         <div class="relative sm:justify-center sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <nav class="bg-white border-b border-gray-100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
+                            <div class="shrink-0 flex items-center">
+                                <Link href="/">
+                                    <img class="block h-12 w-auto" src="/assets/images/logo.jpeg" />
+                                </Link>
+                            </div>
+
                             <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href="/">
+                                    Dashboard
+                                </NavLink>
+                                <NavLink :href="route('contact.show')" :active="route().current('dashboard')">
+                                    Contact
+                                </NavLink>
+                            </div>
                             <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                                 <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
 
@@ -48,7 +63,7 @@ defineProps({
                 </div>
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:mx-0">
-                        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Padelbuddies</h2>
+                        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">PadelBuddies</h2>
                         <p class="mt-6 text-lg leading-8 text-neutral-100">Heb jij geen mede padelspelers en wil jij 
                             samen padel spelen? Gebruik onze webapp voor het vinden van medespelers of registreer voor een lokaal evenement!</p>
                         <p class="mt-6 text-xl leading-8 text-neutral-100 hover:text-gray-900"><a :href="route('register')"> Meld je dan nu aan!</a></p>
@@ -72,7 +87,7 @@ defineProps({
                             <AppLogo />
                         </div>
                         <div>
-                            <div class="text-5xl">Padelbuddies</div>
+                            <div class="text-5xl">PadelBuddies</div>
                         </div>
                     </div>
                     
@@ -92,7 +107,7 @@ defineProps({
         <footer
             class="bg-white rounded-lg shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800">
             <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
-                &copy; 2023 <a :href="route('dashboard')" class="hover:underline" target="_blank">padelbuddies</a>.
+                &copy; 2023 <a href="/" class="hover:underline" target="_blank">padelbuddies</a>.
                 All rights reserved.
             </p>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
