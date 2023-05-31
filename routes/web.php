@@ -44,7 +44,7 @@ Route::middleware([
         Route::post('/edit/{uuid}/update', [BookingController::class, 'update'])->name('booking.update');
     });
 
-    Route::prefix('organizations')->group(function (){
+    Route::middleware('role:admin|organisation')->prefix('organizations')->group(function (){
         Route::get('/view', [OrganizationController::class, 'index'])->name('organization.view');
         Route::get('/create', [OrganizationController::class, 'create'])->name('organization.create');
         Route::post('/create/store', [OrganizationController::class, 'store'])->name('organization.store');

@@ -5,20 +5,25 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Organization;
+use Spatie\Permission\Models\Role;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class OrganizationTest extends TestCase
 {
-    use RefreshDatabase;
+    //use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function setUp():void 
     {
-        //Given 
+        // Start Up 
         parent::setUp();
 
-        $this->user = User::factory()->create();
+        $role = Role::create(['name' => 'admin']);
+
+        $this->user = User::factory()->create()->assignRole($role->name);
         $this->organization = Organization::factory()->withUser()->create();
     } 
 

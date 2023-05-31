@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Address;
 use App\Models\Organization;
+use Spatie\Permission\Models\Role;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,8 +18,10 @@ class AddressTest extends TestCase
     {
         // Given
         parent::setUp();
+        
+        $role = Role::create(['name' => 'admin']);
 
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create()->assignRole($role->name);
         $this->address = Address::factory()->create();
         $this->org = Organization::factory()->withUser()->create();
     }
