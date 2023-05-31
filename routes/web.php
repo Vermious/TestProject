@@ -28,6 +28,7 @@ Route::get('/', function () {
 });
 
 Route::middleware([
+    'role:user|organisation|admin',
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
@@ -44,7 +45,7 @@ Route::middleware([
         Route::post('/edit/{uuid}/update', [BookingController::class, 'update'])->name('booking.update');
     });
 
-    Route::middleware('role:admin|organisation')->prefix('organizations')->group(function (){
+    Route::middleware('role:admin|organisation')->prefix('organisations')->group(function (){
         Route::get('/view', [OrganizationController::class, 'index'])->name('organization.view');
         Route::get('/create', [OrganizationController::class, 'create'])->name('organization.create');
         Route::post('/create/store', [OrganizationController::class, 'store'])->name('organization.store');

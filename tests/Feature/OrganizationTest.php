@@ -6,15 +6,12 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Organization;
 use Spatie\Permission\Models\Role;
-use Illuminate\Foundation\Testing\WithFaker;
 use Inertia\Testing\AssertableInertia as Assert;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class OrganizationTest extends TestCase
 {
-    //use RefreshDatabase;
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     public function setUp():void 
     {
