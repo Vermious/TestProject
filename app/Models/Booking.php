@@ -27,8 +27,13 @@ class Booking extends Model
         'date' => 'date',
     ];
 
-    public function user(): BelongsTo
+    // public function user(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');
+    // }
+    
+    public function group(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Group::class, 'group_id');
     }
 }

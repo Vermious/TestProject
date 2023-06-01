@@ -33,7 +33,7 @@ import AppLogo from '@/CustomComponents/Logo.vue';
                     </svg>
 
                     <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        <a :href="route('booking.view')">Zoek hier je padelbuddie</a>
+                        <a :href="route('buddies.view')">Zoek hier je padelbuddie</a>
                     </h2>
                 </div>
 

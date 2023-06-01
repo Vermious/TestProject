@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Group;
 use App\Models\Address;
 use App\Models\Booking;
 use App\Models\Contact;
@@ -15,8 +16,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory(5)->create();
-        Booking::factory(3)->withUser()->create();
+        User::factory(10)->create();
+        Group::factory(2)->create();
+        Booking::factory(3)->withGroup()->create();
         Address::factory(3)->create();
         Organization::factory(2)->withUser()->create();
         Contact::factory(1)->create();
