@@ -69,7 +69,7 @@ Route::middleware([
 // Buiten de applicatie toegankelijke routes
 
     // contact page
-Route::get('contact/show', function () {
+Route::get('/contact', function () {
     return Inertia::render('Contact/Contact1', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
