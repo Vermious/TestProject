@@ -56,15 +56,21 @@
           </div>
         </div>
       </div>
+      <pagination :links="pageData.users.links" />
     </AppLayout>
 </template>
 
 <script setup>
-    import AppLayout from '@/Layouts/AppLayout.vue'
+    import AppLayout from '@/Layouts/AppLayout.vue';
+    import Pagination from '@/CustomComponents/Pagination.vue';
 </script>
 
 <script>
     export default{
+        components: {
+            AppLayout,
+            Pagination,
+        },
         props: {
             pageData: {
                 type: Object,
