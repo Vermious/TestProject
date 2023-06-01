@@ -55,6 +55,9 @@ const logout = () => {
                                 <NavLink :href="route('booking.view')" :active="route().current('booking.view')">
                                     Bookings
                                 </NavLink>
+                                <NavLink :href="route('buddies.view')" :active="route().current('buddies.view')">
+                                    Buddies
+                                </NavLink>
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="is('admin | organisation')">
                                     <NavLink :href="route('organization.view')" :active="route().current('organization.view')">
                                         Organizations
@@ -217,6 +220,10 @@ const logout = () => {
 
                         <ResponsiveNavLink :href="route('booking.view')" :active="route().current('booking.view')">
                             Bookings
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink :href="route('buddies.view')" :active="route().current('buddies.view')">
+                            Buddies
                         </ResponsiveNavLink>
 
                         <ResponsiveNavLink :href="route('organization.view')" :active="route().current('organization.view')">
