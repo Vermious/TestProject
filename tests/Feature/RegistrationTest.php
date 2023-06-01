@@ -15,6 +15,15 @@ class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $user = User::factory()->create();
+        $role = Role::create(["name" => "user"]);
+        $user->assignRole($role->name);
+    } 
+
     public function test_registration_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::registration())) {
@@ -48,10 +57,6 @@ class RegistrationTest extends TestCase
 
             return;
         }
-
-        $user = User::factory()->create();
-        $role = Role::create(["name" => "user"]);
-        $user->assignRole($role->name);
 
         $response = $this->post('/register', [
             'name' => 'Test User',
