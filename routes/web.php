@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizationController;
@@ -37,6 +38,7 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    // Bookings 
     Route::prefix('bookings')->group(function () {
         Route::get('/view', [BookingController::class, 'index'])->name('booking.view');
         Route::get('/create', [BookingController::class, 'create'])->name('booking.create');
@@ -45,23 +47,29 @@ Route::middleware([
         Route::post('/edit/{uuid}/update', [BookingController::class, 'update'])->name('booking.update');
     });
 
+    // Buddies
+    Route::prefix('buddies')->group(function(){
+        Route::get('/view', [UserController::class, 'index'])->name('buddies.view');
+    });
+
+    // Organisations
     Route::middleware('role:admin|organisation')->prefix('organisations')->group(function (){
         Route::get('/view', [OrganizationController::class, 'index'])->name('organization.view');
         Route::get('/create', [OrganizationController::class, 'create'])->name('organization.create');
         Route::post('/create/store', [OrganizationController::class, 'store'])->name('organization.store');
     });
 
+    // Contact
     Route::prefix('contact')->group(function (){
         Route::get('/view', [ContactController::class, 'index'])->name('contact.view');
         Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
     });
-
 });
 
 // Buiten de applicatie toegankelijke routes
 
     // contact page
-Route::get('contact/show', function () {
+Route::get('/contact', function () {
     return Inertia::render('Contact/Contact1', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
