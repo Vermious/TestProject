@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Contact;
+use Spatie\Permission\Models\Role;
 use Inertia\Testing\AssertableInertia as Assert;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,7 +17,9 @@ class ContactTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = User::factory()->create();
+        $role = Role::create(['name' => 'admin']);
+
+        $this->user = User::factory()->create()->assignRole($role->name);
         $this->contact = Contact::factory()->create();
     }
 

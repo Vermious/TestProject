@@ -38,6 +38,6 @@ class CreateNewUser implements CreatesNewUsers
             'date_of_birth' => $input['date_of_birth'],
             'gender' => $input['gender'],
             'password' => Hash::make($input['password']),
-        ]);
+        ])->assignRole('user');
     }
 }

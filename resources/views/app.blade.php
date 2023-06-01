@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>{{ config('app.name', 'PadelBuddies') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,4 +18,7 @@
     <body class="font-sans antialiased">
         @inertia
     </body>
+    <script type="text/javascript">
+        window.vueSpatiePermissions = {!! auth()->check() ? auth()->user()->getRolesPermissionsAsJson() : 0 !!}
+    </script>
 </html>
