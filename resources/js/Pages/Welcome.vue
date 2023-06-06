@@ -2,6 +2,7 @@
     import { Head, Link } from '@inertiajs/vue3';
     import AppLogo from '@/CustomComponents/Logo.vue';
     import AppLandingsPage from '@/Layouts/AppLandingsPage.vue';
+    import LandingListItem from '@/customComponents/LandingListItem.vue';
 </script>
 
 <template>
@@ -31,6 +32,49 @@
                 </p>
             </div>
         </div>
+
+        <!-- Industry-leading security section -->
+        <section class="w-full my-36">
+            <div class="relative max-w-screen-xl px-8 mx-auto grid grid-cols-12 gap-x-6">
+                <div data-aos="fade-right" class="col-span-12 lg:col-span-6">
+                    <div class="w-full">
+                        <img src="/assets/images/padelracket.jpeg" class="w-full" alt="" />
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="col-span-12 lg:col-span-5 space-y-8 sm:space-y-6 mt-8 xl:px-8">
+                    <h2 class="text-4xl font-semibold">De groot opkomende sport padel, kent u het al?</h2>
+                    <ul class="space-y-8 sm:space-y-4">
+                        <LandingListItem title="Lege padel banen">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Padel is in de laatste jaren een groot opkomende sport in de sportwereld. Steeds meer padelbanen 
+                                komen er in Nederland bij en veel verenigingen zien toekomst hierin. Zelfs door de groei van 
+                                padel blijkt ook de publieke padelsport tegen problemen aan te lopen. In de middagen zijn er 
+                                altijd veel padelbanen die leeg staan.
+                            </p>
+                        </LandingListItem>
+                        <LandingListItem title="Het probleem">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Omdat padel met vier personen gespeeld wordt is het voor sommige lastig om een volledig team te 
+                                vormen. Dit is een tegenvaller voor de omzet van publieke padelbanen waardoor het streefdoel is 
+                                het vinden van oplossingen voor deze problemen.  
+                            </p>
+                        </LandingListItem>
+                        <LandingListItem title="Onze oplossing">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Met de ‘PadelBuddies’ web-app wordt de focus gelegd op op een methode om deze banen te vullen. Er gaat 
+                                vooral gefocust worden om andere padelbuddies te vinden met de web-app. Wanneer iemand in de middag 
+                                wil padellen maar geen medespelers heeft om dit mee te doen, kan hij/zij in de web-app aangeven hoe 
+                                laat hij/zij wil gaan padellen waarbij andere personen zich aan kunnen sluiten. Hiermee kunnen 
+                                personen elkaar vinden waardoor het ’s middags ook drukker wordt.
+                            </p>
+                        </LandingListItem>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+
     </AppLandingsPage> 
 </template>
 
