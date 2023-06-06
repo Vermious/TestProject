@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizationController;
@@ -50,6 +51,11 @@ Route::middleware([
     // Buddies
     Route::prefix('buddies')->group(function(){
         Route::get('/view', [UserController::class, 'index'])->name('buddies.view');
+    });
+
+    // Groups
+    Route::prefix('groups')->group(function(){
+        Route::get('/view', [GroupController::class, 'index'])->name('groups.view');
     });
 
     // Organisations
