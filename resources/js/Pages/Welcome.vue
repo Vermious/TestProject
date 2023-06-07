@@ -3,55 +3,15 @@
     import AppLogo from '@/CustomComponents/Logo.vue';
     import AppLandingsPage from '@/Layouts/AppLandingsPage.vue';
     import LandingListItem from '@/customComponents/LandingListItem.vue';
-    import BaseSection from '@/customComponents/BaseSection.vue';
-    import BaseAccordion from '@/customComponents/Accordion.vue';
-</script>
-
-<script>
- export default{
-    data() {
-        return {
-            accordions: [
-                {
-                title: 'Wat is padel?',
-                description:
-                    "Padel kan het best worden omschreven als een mix van squash en tennis. De sport wordt gespeeld met vier personen (2 tegen 2) in een omsloten kooi, de padelbaan genoemd. Qua techniek en spelregels lijkt het spel vooral op tennis, "
-                    + "maar het gebruik van de wanden heeft meer weg van squash. Beide teams spelen op hun eigen speelhelft, " 
-                    + "daartussen bevindt zich het net. Met een padelracket sla je de bal over het net bij de tegenstander op het veld."
-                    + "De bal mag maar één keer op de grond stuiteren en moet dan worden teruggeslagen. Echter mag daarbij ook gebruik worden gemaakt van de wanden."
-                    + "Het speelveld is stukken kleiner dan een tennisbaan waardoor de dynamiek en snelheid bij padel stukken hoger is.",
-                },
-                {
-                title: 'Wat zijn de spelregels van padel?',
-                description:
-                    "Padel speel je altijd met zijn vieren. Dat levert vaak genoeg nog verrassende nieuwe vriendschappen op. De spelregels van padel" 
-                    + " lijken veel op die van tennis, zo moet de bal ook over het net en in het vak van de tegenstanders worden geslagen. Opslaan"
-                    + " doe je echter onderhands, waarbij de bal eerst moet stuiteren achter de servicelijn voordat je serveert. Een groot verschil" 
-                    + " is dat je de bal na de stuit tegen de wand of muur mag laten komen en hem dan pas terug hoeft te slaan. Dit mag ook weer via de" 
-                    + " muur en levert vaak verrassende rally’s op.",
-                },
-                {
-                title: 'Hoe zoek ik mijn padelmaatje?',
-                description:
-                    "Temp text",
-                },
-                {
-                title: 'Hoe boek ik een baan?',
-                description:
-                    "Temp text",
-                },
-            ],
-        }
-    }
- }
+    import FAQ from '@/customComponents/FAQ.vue';
 </script>
 
 <template>
     <Head title="PadelBuddies" />
- 
+
     <AppLandingsPage>
         <div class="relative sm:justify-center sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+            <div class="pt-10 relative max-w-screen-xl px-8 mx-auto grid grid-cols-1 gap-x-1">
 
                 <div class="md:flex md:items-center">
                     <div class="flex items-center justify-center h-auto max-w-sm">
@@ -63,7 +23,7 @@
                     </div>
                 </div>
                             
-                <p class="mt-6 text-gray-500 leading-relaxed">
+                <p class="mt-6 text-gray-500 leading-relaxed space-y-8 sm:space-y-4">
                     Zie jij overdag ook nooit mensen op de padelbaan? Wij gaan hier verandering in brengen! Ons bedrijf heet Padelbuddies 
                     en neemt het pijnpunt lege padelbanen en het niet kunnen vinden van padelbuddies weg. Het vullen van banen in 
                     combinatie met het vinden van je padelmaatjes doen wij via een all-in-one app. Padelspelers vinden op deze manier 
@@ -125,25 +85,8 @@
         <!-- Potential partners section -->
 
         <!-- FAQ section -->
-        <section class="w-full my-24">
-            <BaseSection>
-                <div data-aos="fade-left" data-aos-delay="150" class="col-span-12 lg:col-span-6 px-4 sm:px-6 mt-8">
-                    <span class="text-base text-gradient font-semibold uppercase mb-4 sm:mb-2">Support</span>
-                    <h2 class="text-3xl sm:text-4xl font-semibold mb-10 sm:mb-6">Frequently asked questions</h2>
-
-                    <ul class="shadow-box">
-                        <BaseAccordion v-for="(accordion, index) in accordions" :key="index" :accordion="accordion" />
-                    </ul>
-                </div>
-                <div data-aos="fade-right" data-aos-delay="150" class="col-span-12 lg:col-span-6">
-                    <div class="w-full">
-                        <!-- Insert Video -->
-                        <!-- <img :src="require('~/assets/img/faq.webp')" class="w-full" alt="" /> -->
-                    </div>
-                </div>
-            </BaseSection>
-        </section>
-
+        <FAQ/>
+       
     </AppLandingsPage> 
 </template>
 
