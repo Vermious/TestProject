@@ -3,6 +3,43 @@
     import AppLogo from '@/CustomComponents/Logo.vue';
     import AppLandingsPage from '@/Layouts/AppLandingsPage.vue';
     import LandingListItem from '@/customComponents/LandingListItem.vue';
+    import BaseSection from '@/customComponents/BaseSection.vue';
+    import BaseAccordion from '@/customComponents/Accordion.vue';
+</script>
+
+<script>
+ export default{
+    data() {
+        return {
+            accordions: [
+                {
+                title: 'Wat is padel?',
+                description:
+                    "Padel kan het best worden omschreven als een mix van squash en tennis. De sport wordt gespeeld met vier personen (2 tegen 2) in een omsloten kooi, de padelbaan genoemd. Qua techniek en spelregels lijkt het spel vooral op tennis, "
+                    + "maar het gebruik van de wanden heeft meer weg van squash. Beide teams spelen op hun eigen speelhelft, " 
+                    + "daartussen bevindt zich het net. Met een padelracket sla je de bal over het net bij de tegenstander op het veld."
+                    + "De bal mag maar één keer op de grond stuiteren en moet dan worden teruggeslagen. Echter mag daarbij ook gebruik worden gemaakt van de wanden."
+                    + "Het speelveld is stukken kleiner dan een tennisbaan waardoor de dynamiek en snelheid bij padel stukken hoger is.",
+                },
+                {
+                title: 'Wat zijn de spelregels van padel',
+                description:
+                    "Temp text",
+                },
+                {
+                title: 'Hoe zoek ik mijn padelmaatje?',
+                description:
+                    "Temp text",
+                },
+                {
+                title: 'Hoe boek ik een baan?',
+                description:
+                    "Temp text",
+                },
+            ],
+        }
+    }
+ }
 </script>
 
 <template>
@@ -73,7 +110,30 @@
             </div>
         </section>
 
-        
+        <!-- Review section -->
+
+        <!-- potential partners section -->
+
+        <!-- About team -->
+
+        <!-- FAQ section -->
+        <section class="w-full my-24">
+            <BaseSection>
+                <div data-aos="fade-left" data-aos-delay="150" class="col-span-12 lg:col-span-6 px-4 sm:px-6 mt-8">
+                    <span class="text-base text-gradient font-semibold uppercase mb-4 sm:mb-2">Support</span>
+                    <h2 class="text-3xl sm:text-4xl font-semibold mb-10 sm:mb-6">Frequently asked questions</h2>
+
+                    <ul class="shadow-box">
+                        <BaseAccordion v-for="(accordion, index) in accordions" :key="index" :accordion="accordion" />
+                    </ul>
+                </div>
+                <div data-aos="fade-right" data-aos-delay="150" class="col-span-12 lg:col-span-6">
+                    <div class="w-full">
+                        <!-- <img :src="require('~/assets/img/faq.webp')" class="w-full" alt="" /> -->
+                    </div>
+                </div>
+            </BaseSection>
+        </section>
 
     </AppLandingsPage> 
 </template>
