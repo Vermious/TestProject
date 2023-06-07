@@ -19,7 +19,8 @@
       </transition>
     </li>
   </template>
-  <script>
+  
+<script>
   export default {
     name: 'BaseAccordion',
     props: {
@@ -34,4 +35,4 @@
       }
     },
   }
-  </script>
+</script>

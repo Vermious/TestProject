@@ -22,9 +22,13 @@
                     + "Het speelveld is stukken kleiner dan een tennisbaan waardoor de dynamiek en snelheid bij padel stukken hoger is.",
                 },
                 {
-                title: 'Wat zijn de spelregels van padel',
+                title: 'Wat zijn de spelregels van padel?',
                 description:
-                    "Temp text",
+                    "Padel speel je altijd met zijn vieren. Dat levert vaak genoeg nog verrassende nieuwe vriendschappen op. De spelregels van padel" 
+                    + " lijken veel op die van tennis, zo moet de bal ook over het net en in het vak van de tegenstanders worden geslagen. Opslaan"
+                    + " doe je echter onderhands, waarbij de bal eerst moet stuiteren achter de servicelijn voordat je serveert. Een groot verschil" 
+                    + " is dat je de bal na de stuit tegen de wand of muur mag laten komen en hem dan pas terug hoeft te slaan. Dit mag ook weer via de" 
+                    + " muur en levert vaak verrassende rally’s op.",
                 },
                 {
                 title: 'Hoe zoek ik mijn padelmaatje?',
@@ -112,9 +116,13 @@
 
         <!-- Review section -->
 
-        <!-- potential partners section -->
+        <!-- [DIFFERENT PAGE] About team -->
 
-        <!-- About team -->
+        <!-- [DIFFERENT PAGE] Blog -->
+
+        <!-- Video's -->
+
+        <!-- Potential partners section -->
 
         <!-- FAQ section -->
         <section class="w-full my-24">
@@ -129,6 +137,7 @@
                 </div>
                 <div data-aos="fade-right" data-aos-delay="150" class="col-span-12 lg:col-span-6">
                     <div class="w-full">
+                        <!-- Insert Video -->
                         <!-- <img :src="require('~/assets/img/faq.webp')" class="w-full" alt="" /> -->
                     </div>
                 </div>
