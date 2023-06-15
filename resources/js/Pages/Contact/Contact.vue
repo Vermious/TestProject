@@ -136,6 +136,16 @@
                                 ></textarea>
                                 <InputError class="mt-2" :message="form.errors.message" />
                             </div>
+                            <div class="mb-6">
+                                <div class="flex items-center">
+                                    <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
+
+                                    <div class="ml-2">
+                                        Ik accepteer de <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">algemene voorwaden </a> 
+                                    </div>
+                                </div>
+                                <InputError class="mt-2" :message="form.errors.terms" />
+                            </div>
                         <div>
                         <button
                             @click="storeContactInfo()"
@@ -967,6 +977,7 @@
 <script setup>
     import AppLayout from '@/Layouts/AppLayout.vue'
     import InputError from '@/Components/InputError.vue';
+    import Checkbox from '@/Components/Checkbox.vue';
 </script>
 
 <script>
@@ -982,6 +993,7 @@
                     email: '',
                     subject: '',
                     message: '',
+                    terms: false,
                 }),
             }
         },

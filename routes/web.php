@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\AVGController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
@@ -82,3 +83,4 @@ Route::post('cantact/store', [ContactController::class, 'store'])->name('contact
 Route::get('about', [TeamController::class, 'index'])->name('about.show');
     // temp way of displaying an blog
 Route::get('blog', [BlogController::class, 'index'])->name('blog.show');
+Route::get('algemene-Voorwaarden-padelbuddies', [AVGController::class, 'index'])->name('terms.show');
