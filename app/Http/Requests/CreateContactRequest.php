@@ -30,6 +30,9 @@ class CreateContactRequest extends FormRequest
             'message' => [
                 'required',
             ],
+            'terms' => [
+                'required',
+            ],
         ];
     }
 }
