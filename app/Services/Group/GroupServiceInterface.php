@@ -2,8 +2,7 @@
 
 namespace App\Services\Group;
 
-use Illuminate\Contracts\Database\Query\Builder;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 
 interface GroupServiceInterface 
 {

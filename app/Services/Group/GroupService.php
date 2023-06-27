@@ -2,15 +2,16 @@
 
 namespace App\Services\Group;
 
-use App\Models\User;
-use App\Models\Group;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class GroupService implements GroupServiceInterface
 {
     public function getGroupByUserId($userId): Collection
     {
-        return User::with('groups')->where('id', '=', $userId)->get();
+        return DB::table('groups')
+            ->join('group_user', 'group_user.group_id', '=', 'groups.id')
+            ->join('users', 'group_user.user_id', '=', 'users.id')
+            ->where('users.id', '=', $userId)->get();
     }
 }
