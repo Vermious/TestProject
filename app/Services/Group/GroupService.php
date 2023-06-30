@@ -14,4 +14,9 @@ class GroupService implements GroupServiceInterface
             ->join('users', 'group_user.user_id', '=', 'users.id')
             ->where('users.id', '=', $userId)->get();
     }
+
+    public function storeGroupName()
+    {
+        
+    }
 }

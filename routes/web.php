@@ -59,6 +59,8 @@ Route::middleware([
     // Groups
     Route::prefix('groups')->group(function(){
         Route::get('/view', [GroupController::class, 'index'])->name('groups.view');
+        Route::get('/create', [GroupController::class, 'create'])->name('group.create');
+        Route::post('/create/store', [GroupController::class, 'store'])->name('group.store');
     });
 
     // Organisations

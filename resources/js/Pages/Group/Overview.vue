@@ -9,6 +9,12 @@
                 <h3 class="font-semibold text-base text-blueGray-700">Your groups</h3>
               </div>
               <div class="relative w-full pl-4 pr-1 max-w-full flex-grow flex-1 text-right">
+                <a
+                  :href="route('group.create')"
+                  class="bg-black text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  >
+                  Maak een niewe groep aan
+                </a>
               </div>
             </div>
           </div>

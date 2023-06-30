@@ -20,4 +20,14 @@ class GroupController extends Controller
             'pageData' => $data->getViewData(),
         ]);
     }
+
+    public function create()
+    {
+        return Inertia::render('Group/Create');
+    }
+
+    public function store(Request $request)
+    {
+        dump($request->get('group_name'));
+    }
 }
