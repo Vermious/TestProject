@@ -61,6 +61,8 @@ Route::middleware([
         Route::get('/view', [GroupController::class, 'index'])->name('groups.view');
         Route::get('/create', [GroupController::class, 'create'])->name('group.create');
         Route::post('/create/store', [GroupController::class, 'store'])->name('group.store');
+        Route::get('/edit/{uuid}', [GroupController::class, 'edit'])->name('group.edit');
+        Route::post('/edit/{uuid}/update', [GroupController::class, 'update'])->name('group.update');
     });
 
     // Organisations

@@ -12,14 +12,13 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid');
+            $table->uuid('uuid')->unique();
             $table->foreignIdFor(Group::class);
             $table->time('time_from');
             $table->time('play_time');
             $table->date('reservation_date');
             $table->integer('padel_court');
             $table->float('price', 6, 2);
-            //TODO: Reference to organisation?
             $table->string('location');
             $table->timestamps();
         });

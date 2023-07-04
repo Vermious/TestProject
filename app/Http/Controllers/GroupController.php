@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Responses\Group\EditResponse;
 use App\Responses\Group\OverviewResponse;
 use App\Services\Group\GroupServiceInterface;
 
@@ -29,6 +30,22 @@ class GroupController extends Controller
     public function store(GroupServiceInterface $groupService, Request $request)
     {
         $groupService->storeGroupName($request);
+        
+        return redirect()->route('groups.view');
+    }
+
+    public function edit(GroupServiceInterface $groupService, string $uuid)
+    {
+        $data = new EditResponse($groupService, $uuid);
+
+        return Inertia::render('Group/Edit', [
+            'pageData' => $data->getViewData(),
+        ]);
+    }
+
+    public function update(GroupServiceInterface $groupService, Request $request, string $uuid)
+    {
+        $groupService->updateGroupName($request, $uuid);
         
         return redirect()->route('groups.view');
     }

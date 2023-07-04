@@ -17,6 +17,7 @@ class GroupFactory extends Factory
     public function definition(): array
     {
         return [
+            'uuid' => $this->faker->uuid(),
             'group_name' => $this->faker->name(),
             'is_full' => $this->faker->numberBetween(0,1),
         ];

@@ -17,7 +17,7 @@ class GroupService implements GroupServiceInterface
             ->where('users.id', '=', $userId)->get();
     }
 
-    public function storeGroupName(Request $request)
+    public function storeGroupName(Request $request): void
     {
         $group = new Group();
 
@@ -26,5 +26,19 @@ class GroupService implements GroupServiceInterface
         if($group->save()){
             $group->users()->sync(auth()->user()->id);
         }
+    }
+
+    public function getGroupByUuid(string $uuid): Group
+    {
+        return Group::findByUuid($uuid);
+    }
+
+    public function updateGroupName(Request $request, string $uuid): void 
+    {
+        $group = Group::findByUuid($uuid);
+
+        $group->group_name = $request->get('group_name');
+
+        $group->save();
     }
 }
