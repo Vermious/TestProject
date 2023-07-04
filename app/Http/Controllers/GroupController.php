@@ -26,8 +26,10 @@ class GroupController extends Controller
         return Inertia::render('Group/Create');
     }
 
-    public function store(Request $request)
+    public function store(GroupServiceInterface $groupService, Request $request)
     {
-        dump($request->get('group_name'));
+        $groupService->storeGroupName($request);
+        
+        return redirect()->route('groups.view');
     }
 }

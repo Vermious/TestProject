@@ -29,7 +29,7 @@ class BookingService implements BookingServiceInterface
     {
         $booking = new Booking();
 
-        // TEMP
+        // TEMP ID
         $booking->group_id = 1;
         $booking->time_from = $request->get('time_from');
         $booking->play_time = $request->get('selected');
@@ -50,7 +50,7 @@ class BookingService implements BookingServiceInterface
     {
         $booking = Booking::findByUuid($uuid);
 
-        // TEMP
+        // TEMP ID 
         $booking->group_id = 1;
         $booking->time_from = $request->get('time_from');
         $booking->play_time = $request->get('play_time');

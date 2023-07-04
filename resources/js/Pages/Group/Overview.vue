@@ -25,11 +25,6 @@
                   <th
                     class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                   >
-                    ID
-                  </th>
-                  <th
-                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                  >
                     Naam
                   </th>
                   <th
@@ -42,15 +37,15 @@
                   >
                     Status
                   </th>
+                  <th
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                  >
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-300">
                 <tr v-for="group in pageData.user" :key="group.id" class="whitespace-nowrap">
-                  <td class="px-6 py-4">
-                    <div class="text-sm text-gray-900">
-                        {{ group.group_id }}
-                    </div>
-                  </td>
                   <td class="px-6 py-4">
                     <div class="text-sm text-gray-900">
                         {{ group.group_name }}
@@ -58,13 +53,21 @@
                   </td>
                   <td class="px-6 py-4">
                     <div class="text-sm text-gray-900">
-                        4 / 4
+                        1 / 4
                     </div>
                   </td>
                   <td class="px-6 py-4">
                     <div class="text-sm text-gray-900">
-                        {{ group.is_full }}
+                        Niet vol
                     </div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <!-- <a :href="route('booking.edit', { id: booking.uuid })" class="pl-3"> Edit </a> -->
+  
+                    <!-- <a :href="route('article.destroy', { id: article.id })" class="pl-3"> Delete </a> -->
+  
+                    <!-- <a :href="route('show-project-briefing', { id: project.id })" class="pl-3"> view </a> -->
+                    
                   </td>
                 </tr>
               </tbody>
