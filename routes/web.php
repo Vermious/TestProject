@@ -63,6 +63,7 @@ Route::middleware([
         Route::post('/create/store', [GroupController::class, 'store'])->name('group.store');
         Route::get('/edit/{uuid}', [GroupController::class, 'edit'])->name('group.edit');
         Route::post('/edit/{uuid}/update', [GroupController::class, 'update'])->name('group.update');
+        Route::get('/delete/{uuid}', [GroupController::class, 'destroy'])->name('group.destroy');
     });
 
     // Organisations

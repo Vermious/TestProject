@@ -41,4 +41,12 @@ class GroupService implements GroupServiceInterface
 
         $group->save();
     }
+
+    public function deleteGroup(string $uuid): void
+    {
+        $group = Group::findByUuid($uuid);
+
+        $group->users()->detach();
+        $group->delete();
+    }
 }

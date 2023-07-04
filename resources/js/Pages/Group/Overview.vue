@@ -62,12 +62,11 @@
                     </div>
                   </td>
                   <td class="px-6 py-4 text-center">
-                    <a :href="route('group.edit', { id: group.uuid })" class="pl-3"> Edit </a>
+                    <a :href="route('group.edit', { uuid: group.uuid })" class="pl-3"> Edit </a>
   
-                    <!-- <a :href="route('article.destroy', { id: article.id })" class="pl-3"> Delete </a> -->
+                    <a :href="route('group.destroy', { uuid: group.uuid })" class="pl-3"> Delete </a>
   
                     <!-- <a :href="route('show-project-briefing', { id: project.id })" class="pl-3"> view </a> -->
-                    
                   </td>
                 </tr>
               </tbody>

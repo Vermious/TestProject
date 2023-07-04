@@ -34,7 +34,7 @@ class GroupController extends Controller
         return redirect()->route('groups.view');
     }
 
-    public function edit(GroupServiceInterface $groupService, string $uuid)
+    public function edit(GroupServiceInterface $groupService, string $uuid): Response
     {
         $data = new EditResponse($groupService, $uuid);
 
@@ -46,6 +46,13 @@ class GroupController extends Controller
     public function update(GroupServiceInterface $groupService, Request $request, string $uuid)
     {
         $groupService->updateGroupName($request, $uuid);
+        
+        return redirect()->route('groups.view');
+    }
+
+    public function destroy(GroupServiceInterface $groupService, string $uuid)
+    {
+        $groupService->deleteGroup($uuid);
         
         return redirect()->route('groups.view');
     }
