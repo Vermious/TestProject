@@ -126,23 +126,6 @@
         },
         data() {
             return {
-                // orgForm: this.$inertia.form({
-                //     _method: "POST",
-                //     organization_name: "",
-                //     padel_court: 0,
-                // }),
-
-                // addrForm: this.$inertia.form({
-                //     _method: "POST",
-                //     // Temp ID
-                //     //addressable_id: 1,
-                //     city_name: "",
-                //     postal_code: "",
-                //     street_name: "",
-                //     house_number: 0,
-                //     province: "",
-                // }),
-
                 form: this.$inertia.form({
                     _method: "POST",
                     organization_name: "",
@@ -172,18 +155,6 @@
                     },
                 })
             },
-            // createAddress(){
-            //   this.addrForm.post(route('address.store'), {
-            //         onSucces: (response) => {
-            //             this.orgForm.addressable_id = response.addressable_id;
-            //             this.orgForm.city_name = response.city_name; 
-            //             this.orgForm.postal_code = response.postal_code; 
-            //             this.orgForm.street_name = response.street_name; 
-            //             this.orgForm.house_number = response.house_number; 
-            //             this.orgForm.province = response.province; 
-            //         },
-            //     })
-            // }
         },
     }
 </script>

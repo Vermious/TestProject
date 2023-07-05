@@ -8,6 +8,7 @@ use App\Models\Booking;
 use App\Models\Contact;
 use App\Models\Organization;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RoleSeeder;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -20,10 +21,12 @@ class DatabaseSeeder extends Seeder
         Organization::factory(2)->withUser()->create();
         Contact::factory(1)->create();
 
+        $this->call(RoleSeeder::class);
+
         \App\Models\User::factory()->create([
-            'name' => 'Michiel',
+            'name' => 'admin',
             'email' => 'dev@test.nl',
             'password' => bcrypt('Test12345'),
-        ]);
+        ])->assignRole(['admin', 'organisation', 'user']);
     }
 }

@@ -3,15 +3,26 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Models\User;
 use Laravel\Fortify\Features;
 use Illuminate\Support\Carbon;
 use Laravel\Jetstream\Jetstream;
+use Spatie\Permission\Models\Role;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $user = User::factory()->create();
+        $role = Role::create(["name" => "user"]);
+        $user->assignRole($role->name);
+    } 
 
     public function test_registration_screen_can_be_rendered(): void
     {
@@ -58,6 +69,7 @@ class RegistrationTest extends TestCase
             'gender' => 'Male',
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
         ]);
+
 
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);

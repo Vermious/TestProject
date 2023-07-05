@@ -1,0 +1,211 @@
+<script setup>
+import { ref } from 'vue';
+import { Head, Link, router } from '@inertiajs/vue3';
+import NavLink from '@/Components/NavLink.vue';
+import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import HeaderImage from '@/CustomComponents/HeaderImage.vue';
+
+defineProps({
+    title: String,
+    canLogin: Boolean,
+    canRegister: Boolean,
+});
+
+const showingNavigationDropdown = ref(false);
+
+const switchToTeam = (team) => {
+    router.put(route('current-team.update'), {
+        team_id: team.id,
+    }, {
+        preserveState: false,
+    });
+};
+
+const logout = () => {
+    router.post(route('logout'));
+};
+</script>
+
+<template>
+    <div>
+        <Head :title="title" />
+
+        <div class="min-h-screen bg-gray-100">
+            <nav class="bg-white border-b border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex">
+                            <div class="shrink-0 flex items-center">
+                                <Link href="/">
+                                    <img class="block h-12 w-auto" src="/assets/images/logo.jpeg" />
+                                </Link>
+                            </div>
+
+                            <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href="/">
+                                    Dashboard
+                                </NavLink>
+                                <NavLink :href="route('about.show')" :active="route().current('about.show')">
+                                    Ons Team
+                                </NavLink>
+                                <NavLink :href="route('contact.show')" :active="route().current('contact.show')">
+                                    Contact
+                                </NavLink>
+                            </div>
+                            <div v-if="true" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+                                <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
+
+                                <template v-else>
+                                    <Link :href="route('login')" class="font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</Link>
+
+                                    <Link v-if="true" :href="route('register')" class="ml-4 font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</Link>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Hamburger -->
+                        <div class="-mr-2 flex items-center sm:hidden">
+                            <button
+                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                                @click="showingNavigationDropdown = !showingNavigationDropdown">
+                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                    <path
+                                        :class="{ 'hidden': showingNavigationDropdown, 'inline-flex': !showingNavigationDropdown }"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                    <path
+                                        :class="{ 'hidden': !showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsive Navigation Menu -->
+                <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }"
+                    class="sm:hidden">
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink href="/">
+                            Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('about.show')" :active="route().current('about.show')">
+                            Ons Team
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('contact.show')" :active="route().current('contact.show')">
+                            Contact
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <!-- Responsive Settings Options -->
+                    <div class="pt-4 pb-1 border-t border-gray-200">
+                        <div class="flex items-center px-4">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Heading -->
+            <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+                <HeaderImage />
+                <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+                    aria-hidden="true">
+                    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
+                </div>
+                        
+                <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+                    aria-hidden="true">
+                    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
+                </div>
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto max-w-2xl lg:mx-0">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">PadelBuddies</h2>
+                        <p class="mt-6 text-lg leading-8 text-neutral-100">Heb jij geen mede padelspelers en wil jij 
+                            samen padel spelen? Gebruik onze webapp voor het vinden van medespelers of registreer voor een lokaal evenement!</p>
+                        <p class="mt-6 text-xl leading-8 text-neutral-100 hover:text-gray-900"><a :href="route('register')"> Meld je dan nu aan!</a></p>
+                    </div>
+                    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                        <div
+                            class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                        </div>
+
+                        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <main>
+                <slot />
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer
+            class="bg-white rounded-lg shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800">
+            <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
+                &copy; 2023 <a :href="route('dashboard')" class="hover:underline" target="_blank">padelbuddies</a>.
+                All rights reserved.
+            </p>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                </li>
+                <li>
+                    <a :href="route('terms.show')" class="mr-4 hover:underline md:mr-6">Algemene voorwaarden</a>
+                </li>
+                <li>
+                    <a :href="route('contact.view')" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+            <div class="flex justify-center items-center space-x-1">
+                <a href="https://www.tiktok.com/@padelbuddies" data-tooltip-target="tooltip-tiktok"
+                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                        class="h-5 w-5">
+                        <path
+                            fill="currentColor"
+                            d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+                    </svg>
+                    <span class="sr-only">Tiktok</span>
+                </a>
+                <div id="tooltip-titkok" role="tooltip"
+                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                        Follow us on Tiktok
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <a href="https://www.instagram.com/padelbuddies_/" data-tooltip-target="tooltip-instagram"
+                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/93779572" data-tooltip-target="tooltip-instagram"
+                        class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24">
+                                <path
+                                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                        </svg>
+                    <span class="sr-only">Linkedin</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+</template>

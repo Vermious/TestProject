@@ -21,12 +21,16 @@ class CreateContactRequest extends FormRequest
             'email' => [
                 'required',
                 'string',
+                'email:rfc,dns'
             ],
             'subject' => [
                 'required',
                 'string',
             ],
             'message' => [
+                'required',
+            ],
+            'terms' => [
                 'required',
             ],
         ];

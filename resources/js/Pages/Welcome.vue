@@ -1,165 +1,169 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
-import AppLogo from '@/CustomComponents/Logo.vue';
-import HeaderImage from '@/CustomComponents/HeaderImage.vue';
-
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-});
+    import { Head, Link } from '@inertiajs/vue3';
+    import AppLogo from '@/CustomComponents/Logo.vue';
+    import AppLandingsPage from '@/Layouts/AppLandingsPage.vue';
+    import LandingListItem from '@/customComponents/LandingListItem.vue';
+    import FAQ from '@/customComponents/FAQ.vue';
 </script>
 
 <template>
-        <Head title="Welcome" />
+    <Head title="PadelBuddies" />
+
+    <AppLandingsPage>
         <div class="relative sm:justify-center sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            <nav class="bg-white border-b border-gray-100">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Navigation Links -->
-                            <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
+            <div class="pt-10 relative max-w-screen-xl px-8 mx-auto grid grid-cols-1 gap-x-1">
 
-                                <template v-else>
-                                    <Link :href="route('login')" class="font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</Link>
+                <div class="md:flex md:items-center">
+                    <div class="flex items-center justify-center h-auto max-w-sm">
+                        <AppLogo />
+                    </div>
 
-                                    <Link v-if="canRegister" :href="route('register')" class="ml-4 font-semibold text-black hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</Link>
-                                </template>
+                    <div>
+                        <div class="text-5xl">PadelBuddies</div>
+                    </div>
+                </div>
+                            
+                <p class="mt-6 text-gray-500 leading-relaxed space-y-8 sm:space-y-4">
+                    Zie jij overdag ook nooit mensen op de padelbaan? Wij gaan hier verandering in brengen! Ons bedrijf heet Padelbuddies 
+                    en neemt het pijnpunt lege padelbanen en het niet kunnen vinden van padelbuddies weg. Het vullen van banen in 
+                    combinatie met het vinden van je padelmaatjes doen wij via een all-in-one app. Padelspelers vinden op deze manier 
+                    medespelers om samen te padellen. Daarnaast worden de banen gevuld door het organiseren van evenementen. Deze evenementen 
+                    zijn voor zowel maatschappelijke organisaties als particulieren. Word jij ook gek van de lege padelbanen, gebruik dan 
+                    nu onze onze website! 
+                </p>
+            </div>
+        </div>
+
+        <!-- Uitleg over wat we doen -->
+        <section class="w-full my-36">
+            <div class="relative max-w-screen-xl px-8 mx-auto grid grid-cols-12 gap-x-6">
+                <div data-aos="fade-right" class="col-span-12 lg:col-span-6">
+                    <div class="w-full">
+                        <img src="/assets/images/padelracket.jpeg" class="w-full" alt="" />
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="col-span-12 lg:col-span-5 space-y-8 sm:space-y-6 mt-8 xl:px-8">
+                    <h2 class="text-4xl font-semibold">De groot opkomende sport padel, kent u het al?</h2>
+                    <ul class="space-y-8 sm:space-y-4">
+                        <LandingListItem title="Lege padel banen">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Padel is in de laatste jaren een groot opkomende sport in de sportwereld. Steeds meer padelbanen 
+                                komen er in Nederland bij en veel verenigingen zien toekomst hierin. Zelfs door de groei van 
+                                padel blijkt ook de publieke padelsport tegen problemen aan te lopen. In de middagen zijn er 
+                                altijd veel padelbanen die leeg staan.
+                            </p>
+                        </LandingListItem>
+                        <LandingListItem title="Het probleem">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Omdat padel met vier personen gespeeld wordt is het voor sommige lastig om een volledig team te 
+                                vormen. Dit is een tegenvaller voor de omzet van publieke padelbanen waardoor het streefdoel is 
+                                het vinden van oplossingen voor deze problemen.  
+                            </p>
+                        </LandingListItem>
+                        <LandingListItem title="Onze oplossing">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Met de ‘PadelBuddies’ web-app wordt de focus gelegd op op een methode om deze banen te vullen. Er gaat 
+                                vooral gefocust worden om andere padelbuddies te vinden met de web-app. Wanneer iemand in de middag 
+                                wil padellen maar geen medespelers heeft om dit mee te doen, kan hij/zij in de web-app aangeven hoe 
+                                laat hij/zij wil gaan padellen waarbij andere personen zich aan kunnen sluiten. Hiermee kunnen 
+                                personen elkaar vinden waardoor het ’s middags ook drukker wordt.
+                            </p>
+                        </LandingListItem>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video -->
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+                    <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Kom gezellig padellen</h2>
+                    <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Deze 4 vrienden hebben door middel van onze service elkaar gevonden. Wil jij dit ook?<a class=" hover:text-gray-900" :href="route('register')"> Meld je dan nu aan!</a></p>
+                </div> 
+                <iframe class="w-full aspect-video" width="469" height="833" src="https://www.youtube.com/embed/0WIvtw56onM" title="PadelBuddies, medespelers vinden voor een potje padel!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Review section -->
+        <section class="w-full pt-8 px-4">
+            <div class="mx-auto max-w-3xl text-center">
+                <h3 class="mb-6 text-3xl font-bold">Reviews</h3>
+                <p class="pb-2 text-neutral-500 dark:text-neutral-300 ">
+                    Deze mensen maken al gebruik van onze service. Ben jij de volgende?
+                </p>
+            </div>
+
+            <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6 mb-8">
+                <figure class="max-w-screen-md mx-auto">
+                    <svg class="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
+                    </svg> 
+                    <blockquote>
+                        <p class="text-2xl font-medium text-gray-900 dark:text-white">
+                            "Super overzichtelijke website, alles was makkelijk te vinden onder de duidelijke kopjes! Op 
+                            deze manier wil ik wel vaker een activiteit boeken."
+                        </p>
+                    </blockquote>
+                    <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                        <!-- HERE -->
+                        <img class="rounded-full object-cover h-6 w-6" src="/assets/images/Danny.jpg" alt="profile picture">
+                        <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                            <div class="pr-3 font-medium text-gray-900 dark:text-white">Danny Wout</div>
+                            <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">Student</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+                    <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Onze Blogs</h2>
+                    <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Blijft op de hoogte via onze blogs. Daar vertellen we je graag meer over de sport padel.</p>
+                </div> 
+                <div class="grid gap-8 lg:grid-cols-2">
+                    <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex justify-between items-center mb-5 text-gray-500">
+                            <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg>
+                                Article
+                            </span>
+                        </div>
+                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a :href="route('blog.show')">PADELBUDDIES, de ultieme app om medespelers te vinden!</a></h2>
+                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">In de wereld van racketsporten heeft padel de laatste jaren enorme populariteit gewonnen. Het is een dynamische sport die elementen van tennis en squash vervangt, en het is een geweldige manier om actief te blijven en nieuwe mensen te ontmoeten.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-4">
+                                <div class="h-8 w-8">
+                                    <img src="/assets/images/Mark.jpg" alt="" class="rounded-full object-cover h-full w-full shadow-md" />
+                                </div>
+                                <span class="font-medium dark:text-white">
+                                    Mark Scheurs
+                                </span>
                             </div>
+                            <a :href="route('blog.show')" class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                                Lees meer
+                                <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-                <HeaderImage />
-                <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
-                    aria-hidden="true">
-                    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
-                </div>
-                        
-                <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-                    aria-hidden="true">
-                    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
-                </div>
-                <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div class="mx-auto max-w-2xl lg:mx-0">
-                        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Padelbuddies</h2>
-                        <p class="mt-6 text-lg leading-8 text-neutral-100">Heb jij geen mede padelspelers en wil jij 
-                            samen padel spelen? Gebruik onze webapp voor het vinden van medespelers of registreer voor een lokaal evenement!</p>
-                        <p class="mt-6 text-xl leading-8 text-neutral-100 hover:text-gray-900"><a :href="route('register')"> Meld je dan nu aan!</a></p>
-                    </div>
-                    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                        <div
-                            class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                    </article> 
+                    <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">Coming Soon!</a></h2>
+                        <div class="flex justify-between items-center">
                         </div>
-
-                        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-                        </dl>
-                    </div>
-                </div>
+                    </article>                  
+                </div>  
             </div>
+        </section>
 
-            <div>
-                <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+        <!-- Potential partners section -->
 
-                    <div class="md:flex md:items-center">
-                        <div class="flex items-center justify-center h-auto max-w-sm">
-                            <AppLogo />
-                        </div>
-                        <div>
-                            <div class="text-5xl">Padelbuddies</div>
-                        </div>
-                    </div>
-                    
-                    <p class="mt-6 text-gray-500 leading-relaxed">
-                        Zie jij overdag ook nooit mensen op de padelbaan? Wij gaan hier verandering in brengen! Ons bedrijf heet Padelbuddies 
-                        en neemt het pijnpunt lege padelbanen en het niet kunnen vinden van padelbuddies weg. Het vullen van banen in 
-                        combinatie met het vinden van je padelmaatjes doen wij via een all-in-one app. Padelspelers vinden op deze manier 
-                        medespelers om samen te padellen. Daarnaast worden de banen gevuld door het organiseren van evenementen. Deze evenementen 
-                        zijn voor zowel maatschappelijke organisaties als particulieren. Word jij ook gek van de lege padelbanen, download dan 
-                        nu onze app of bezoek onze website! 
-                    </p>
-                </div>
-                <!-- INSERT EXTRA CONTENT -->
-            </div>
-        </div> 
-
-        <footer
-            class="bg-white rounded-lg shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800">
-            <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
-                &copy; 2023 <a :href="route('dashboard')" class="hover:underline" target="_blank">padelbuddies</a>.
-                All rights reserved.
-            </p>
-            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                </li>
-                <li>
-                    <a :href="route('contact.show')" class="hover:underline">Contact</a>
-                </li>
-            </ul>
-            <div class="flex justify-center items-center space-x-1">
-                <a href="#" data-tooltip-target="tooltip-facebook"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd"
-                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="sr-only">Facebook</span>
-                </a>
-                <div id="tooltip-facebook" role="tooltip"
-                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-                    Like us on Facebook
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <a href="#" data-tooltip-target="tooltip-twitter"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" >
-                        <path
-                            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                    </svg>
-                    <span class="sr-only">Twitter</span>
-                </a>
-                <div id="tooltip-twitter" role="tooltip"
-                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-                    Follow us on Twitter
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <a href="#" data-tooltip-target="tooltip-instagram"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                    <span class="sr-only">Instagram</span>
-                </a>
-                <a href="https://www.linkedin.com/company/93779572" data-tooltip-target="tooltip-instagram"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                            <path
-                                d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                    </svg>
-                    <span class="sr-only">Linkedin</span>
-                </a>
-            </div>
-        </footer>
+        <!-- FAQ section -->
+        <FAQ/>
+       
+    </AppLandingsPage> 
 </template>
 
 <style>

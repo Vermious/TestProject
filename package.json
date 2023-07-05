@@ -18,6 +18,8 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "@dafcoe/vue-collapsible-panel": "^0.2.0",
+        "laravel-permission-to-vuejs": "^2.0.5",
         "vuejs3-datepicker": "^1.0.16"
     }
 }
