@@ -2,6 +2,7 @@
 
 namespace App\Services\Group;
 
+use App\Models\User;
 use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -40,6 +41,13 @@ class GroupService implements GroupServiceInterface
         $group->group_name = $request->get('group_name');
 
         $group->save();
+    }
+
+    public function groupUsersByUuid(string $uuid): Collection
+    {
+        return User::whereHas('groups', function($subQuery) use($uuid){
+            $subQuery->where('uuid', '=', $uuid);
+        })->get();
     }
 
     public function deleteGroup(string $uuid): void

@@ -7,6 +7,7 @@ use Inertia\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Responses\Group\EditResponse;
+use App\Responses\Group\ShowResponse;
 use App\Responses\Group\OverviewResponse;
 use App\Services\Group\GroupServiceInterface;
 
@@ -50,10 +51,19 @@ class GroupController extends Controller
         return redirect()->route('groups.view');
     }
 
+    public function show(GroupServiceInterface $groupService, string $uuid)
+    {
+        $data = new ShowResponse($groupService, $uuid);
+
+        return Inertia::render('Group/Show', [
+            'pageData' => $data->getViewData(),
+        ]);
+    }
+
     public function destroy(GroupServiceInterface $groupService, string $uuid)
     {
         $groupService->deleteGroup($uuid);
-        
+
         return redirect()->route('groups.view');
     }
 }

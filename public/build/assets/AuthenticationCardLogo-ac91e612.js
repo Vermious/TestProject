@@ -1,0 +1,1 @@
+import{o as e,c as s,w as a,u as t,j as o,a as c}from"./app-ed013a11.js";const r=c("img",{class:"h-40 w-38",src:"/assets/images/logo.png"},null,-1),l={__name:"AuthenticationCardLogo",setup(n){return(_,i)=>(e(),s(t(o),{href:"/"},{default:a(()=>[r]),_:1}))}};export{l as _};

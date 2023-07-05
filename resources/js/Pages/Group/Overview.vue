@@ -38,7 +38,7 @@
                     Status
                   </th>
                   <th
-                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center"
                   >
                     Actions
                   </th>
@@ -63,10 +63,10 @@
                   </td>
                   <td class="px-6 py-4 text-center">
                     <a :href="route('group.edit', { uuid: group.uuid })" class="pl-3"> Edit </a>
+
+                    <a :href="route('group.show', { uuid: group.uuid })" class="pl-3"> view </a>
   
                     <a :href="route('group.destroy', { uuid: group.uuid })" class="pl-3"> Delete </a>
-  
-                    <!-- <a :href="route('show-project-briefing', { id: project.id })" class="pl-3"> view </a> -->
                   </td>
                 </tr>
               </tbody>

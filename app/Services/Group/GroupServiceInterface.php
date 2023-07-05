@@ -17,4 +17,6 @@ interface GroupServiceInterface
     public function updateGroupName(Request $request, string $uuid): void;
 
     public function deleteGroup(string $uuid): void;
+
+    public function groupUsersByUuid(string $uuid): Collection;
 }
