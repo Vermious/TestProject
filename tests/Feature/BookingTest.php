@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Group;
 use Spatie\Permission\Models\Role;
 use Inertia\Testing\AssertableInertia as Assert;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -20,14 +21,14 @@ class BookingTest extends TestCase
         $role = Role::create(['name' => 'admin']);
 
         $this->user = User::factory()->create()->assignRole($role->name);
-        $this->booking = Booking::factory()->withUser()->create();
+        $this->booking = Booking::factory()->withGroup()->create();
     }
 
-    public function testItCanConnectUserWithBooking()
+    public function testItCanConnectBookingWithGroup()
     {
-        $expected = $this->booking->user()->first();
+        $expected = $this->booking->group()->first();
 
-        $this->assertTrue($expected instanceof User);
+        $this->assertTrue($expected instanceof Group);
     }
 
     public function testItCanShowBooking()
@@ -70,7 +71,7 @@ class BookingTest extends TestCase
     {
         // Given
         $uuid = '6fe94d62-690b-4655-ac87-e1a43854f47d';
-        $userId = $this->user->id; 
+        $groupId = 1; 
         $price = 19.99;
         $location = 'Test location'; 
         $timeForm = '09:00';
@@ -80,7 +81,7 @@ class BookingTest extends TestCase
 
         $data = [
             'uuid' => $uuid,
-            'user_id' => $userId,
+            'group_id' => $groupId,
             'price' => $price,
             'time_from' => $timeForm,
             'selected' => $playTime,
@@ -99,7 +100,7 @@ class BookingTest extends TestCase
         $response->assertSessionHasNoErrors();
         
         $this->assertEquals($uuid, $data['uuid']);
-        $this->assertEquals($userId, $data['user_id']);
+        $this->assertEquals($groupId, $data['group_id']);
         $this->assertEquals($price, $data['price']);
         $this->assertEquals($timeForm, $data['time_from']);
         $this->assertEquals($playTime, $data['selected']);
@@ -138,7 +139,7 @@ class BookingTest extends TestCase
 
         $data = [
             'uuid' => $this->booking->uuid,
-            'user_id' => $this->booking->user_id,
+            'group_id' => 1,
             'price' => $this->booking->price,
             'time_from' => $this->booking->time_from,
             'play_time' => $this->booking->play_time,

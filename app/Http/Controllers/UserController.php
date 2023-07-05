@@ -13,7 +13,6 @@ class UserController extends Controller
     public function index(UserServiceInterface $userService): Response
     {
         $data = new OverviewResponse($userService);
-        //dd($data->getViewData());
         
         return Inertia::render('Buddies/Overview', [
             'pageData' => $data->getViewData(),

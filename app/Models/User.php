@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Booking;
+use App\Models\Group;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use SpatiePermissionVue\Traits\RolesPermissionsToVue;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -69,9 +70,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function booking(): HasOne
+    public function groups(): BelongsToMany
     {
-        return $this->hasOne(Booking::class, 'user_id');
+        return $this->BelongsToMany(Group::class, 'group_user', 'user_id', 'group_id');
     }
 
     public function organization(): HasOne

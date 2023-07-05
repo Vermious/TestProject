@@ -7,6 +7,7 @@ use App\Http\Controllers\AVGController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizationController;
@@ -32,7 +33,6 @@ Route::get('/', function () {
 });
 
 Route::middleware([
-    'role:user|organisation|admin',
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
@@ -53,6 +53,17 @@ Route::middleware([
     // Buddies
     Route::prefix('buddies')->group(function(){
         Route::get('/view', [UserController::class, 'index'])->name('buddies.view');
+    });
+
+    // Groups
+    Route::prefix('groups')->group(function(){
+        Route::get('/view', [GroupController::class, 'index'])->name('groups.view');
+        Route::get('/create', [GroupController::class, 'create'])->name('group.create');
+        Route::post('/create/store', [GroupController::class, 'store'])->name('group.store');
+        Route::get('/edit/{uuid}', [GroupController::class, 'edit'])->name('group.edit');
+        Route::get('/show/{uuid}', [GroupController::class, 'show'])->name('group.show');
+        Route::post('/edit/{uuid}/update', [GroupController::class, 'update'])->name('group.update');
+        Route::get('/delete/{uuid}', [GroupController::class, 'destroy'])->name('group.destroy');
     });
 
     // Organisations
