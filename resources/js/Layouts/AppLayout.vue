@@ -58,6 +58,9 @@ const logout = () => {
                                 <NavLink :href="route('buddies.view')" :active="route().current('buddies.view')">
                                     Buddies
                                 </NavLink>
+                                <NavLink :href="route('groups.view')" :active="route().current('groups.view')">
+                                    Groepen
+                                </NavLink>
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="is('admin | organisation')">
                                     <NavLink :href="route('organization.view')" :active="route().current('organization.view')">
                                         Organizations
@@ -226,6 +229,10 @@ const logout = () => {
                             Buddies
                         </ResponsiveNavLink>
 
+                        <ResponsiveNavLink :href="route('groups.view')" :active="route().current('groups.view')">
+                            Groepen
+                        </ResponsiveNavLink>
+
                         <ResponsiveNavLink :href="route('organization.view')" :active="route().current('organization.view')">
                             Organizations
                         </ResponsiveNavLink>
@@ -330,6 +337,7 @@ const logout = () => {
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl lg:mx-0">
                             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">Padelbuddies</h2>
+                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">Padelbuddies</h2>
                             <p class="mt-6 text-lg leading-8 text-neutral-100">Heb jij geen mede padelspelers en wil jij 
                                 samen padel spelen? Gebruik onze webapp voor het vinden van medespelers of registreer voor een lokaal evenement!</p>
                         </div>
@@ -411,6 +419,6 @@ const logout = () => {
                 </a>
             </div>
         </footer>
-
+        
     </div>
 </template>

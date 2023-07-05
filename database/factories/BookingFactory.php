@@ -2,8 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
-use App\Models\Availability;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,11 +23,11 @@ class BookingFactory extends Factory
         ];
     }
 
-    public function withUser(): Factory
+    public function withGroup(): Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'user_id' => User::factory(),
+                'group_id' => Group::factory(),
             ];
         });
     }

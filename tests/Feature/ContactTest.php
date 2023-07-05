@@ -42,12 +42,14 @@ class ContactTest extends TestCase
         $email = 'test@test.nl';
         $subject = 'Bug report';
         $message = 'This is a great piece of test content';
+        $terms = 'true';
 
         $data = [
             'name' => $name ,
             'email' => $email,
             'subject' => $subject,
             'message' => $message,
+            'terms' => $terms,
         ];
 
         $url = route('contact.store');
@@ -64,5 +66,6 @@ class ContactTest extends TestCase
         $this->assertEquals($email, $data['email']);
         $this->assertEquals($subject, $data['subject']);
         $this->assertEquals($message, $data['message']);
+        $this->assertEquals($terms, $data['terms']);
     }
 }

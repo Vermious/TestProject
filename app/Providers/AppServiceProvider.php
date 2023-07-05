@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Services\User\UserService;
+use App\Services\Group\GroupService;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Booking\BookingService;
 use App\Services\Contact\ContactService;
 use App\Services\User\UserServiceInterface;
+use App\Services\Group\GroupServiceInterface;
 use App\Services\Booking\BookingServiceInterface;
 use App\Services\Contact\ContactServiceInterface;
 use App\Services\Organization\OrganizationService;
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(OrganizationServiceInterface::class, OrganizationService::class);
         $this->app->bind(ContactServiceInterface::class, ContactService::class);
         $this->app->bind(UserServiceInterface::class, UserService::class);
+        $this->app->bind(GroupServiceInterface::class, GroupService::class);
     }
     
     public function boot(): void
