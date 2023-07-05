@@ -370,7 +370,6 @@ const logout = () => {
                 </li>
                 <li>
                     <a :href="route('terms.show')" class="mr-4 hover:underline md:mr-6">Algemene voorwaarden</a>
-                    <a :href="route('terms.show')" class="mr-4 hover:underline md:mr-6">Algemene voorwaarden</a>
                 </li>
                 <li>
                     <a :href="route('contact.view')" class="hover:underline">Contact</a>
@@ -378,12 +377,7 @@ const logout = () => {
             </ul>
             <div class="flex justify-center items-center space-x-1">
                 <a href="https://www.tiktok.com/@padelbuddies" data-tooltip-target="tooltip-tiktok"
-                <a href="https://www.tiktok.com/@padelbuddies" data-tooltip-target="tooltip-tiktok"
                     class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        class="h-5 w-5">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512"
@@ -391,20 +385,14 @@ const logout = () => {
                         <path
                             fill="currentColor"
                             d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
-                            fill="currentColor"
-                            d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
                     </svg>
-                    <span class="sr-only">Tiktok</span>
                     <span class="sr-only">Tiktok</span>
                 </a>
                 <div id="tooltip-titkok" role="tooltip"
-                <div id="tooltip-titkok" role="tooltip"
                     class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-                        Follow us on Tiktok
                         Follow us on Tiktok
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-                <a href="https://www.instagram.com/padelbuddies_/" data-tooltip-target="tooltip-instagram"
                 <a href="https://www.instagram.com/padelbuddies_/" data-tooltip-target="tooltip-instagram"
                     class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
                     <svg
@@ -431,20 +419,6 @@ const logout = () => {
                 </a>
             </div>
         </footer>
-                        class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24">
-                                <path
-                                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                        </svg>
-                    <span class="sr-only">Linkedin</span>
-                </a>
-            </div>
-        </footer>
-
-    </div>
+        
     </div>
 </template>
