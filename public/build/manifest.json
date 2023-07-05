@@ -63,6 +63,7 @@
     "imports": [
       "resources/js/app.js",
       "__plugin-vue_export-helper-c27b6911.js"
+      "__plugin-vue_export-helper-c27b6911.js"
     ]
   },
   "_InputError-d48ec60d.js": {
@@ -168,12 +169,11 @@
     "file": "assets/ConfirmPassword-04e5d319.js",
     "imports": [
       "resources/js/app.js",
-      "_AuthenticationCard-c619c4f9.js",
-      "_AuthenticationCardLogo-ac91e612.js",
-      "_InputError-d48ec60d.js",
-      "_InputLabel-42b2d7f6.js",
-      "_PrimaryButton-d968a285.js",
-      "_TextInput-0e39b6f7.js",
+      "_AuthenticationCard-46656689.js",
+      "_AuthenticationCardLogo-fe4ff63e.js",
+      "_TextInput-3484f506.js",
+      "_InputLabel-b043a2e4.js",
+      "_PrimaryButton-34ed4d95.js",
       "__plugin-vue_export-helper-c27b6911.js"
     ],
     "isDynamicEntry": true,
@@ -183,12 +183,11 @@
     "file": "assets/ForgotPassword-93dae42d.js",
     "imports": [
       "resources/js/app.js",
-      "_AuthenticationCard-c619c4f9.js",
-      "_AuthenticationCardLogo-ac91e612.js",
-      "_InputError-d48ec60d.js",
-      "_InputLabel-42b2d7f6.js",
-      "_PrimaryButton-d968a285.js",
-      "_TextInput-0e39b6f7.js",
+      "_AuthenticationCard-46656689.js",
+      "_AuthenticationCardLogo-fe4ff63e.js",
+      "_TextInput-3484f506.js",
+      "_InputLabel-b043a2e4.js",
+      "_PrimaryButton-34ed4d95.js",
       "__plugin-vue_export-helper-c27b6911.js"
     ],
     "isDynamicEntry": true,
@@ -568,10 +567,12 @@
   },
   "resources/js/Pages/Welcome.css": {
     "file": "assets/Welcome-7324379f.css",
+    "file": "assets/Welcome-7324379f.css",
     "src": "resources/js/Pages/Welcome.css"
   },
   "resources/js/Pages/Welcome.vue": {
     "css": [
+      "assets/Welcome-7324379f.css"
       "assets/Welcome-7324379f.css"
     ],
     "file": "assets/Welcome-3d1997cc.js",
@@ -587,10 +588,12 @@
   },
   "resources/js/app.css": {
     "file": "assets/app-b7576559.css",
+    "file": "assets/app-b7576559.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
+      "assets/app-b7576559.css"
       "assets/app-b7576559.css"
     ],
     "dynamicImports": [
@@ -604,9 +607,11 @@
       "resources/js/Pages/Auth/TwoFactorChallenge.vue",
       "resources/js/Pages/Auth/VerifyEmail.vue",
       "resources/js/Pages/Blog/Blog.vue",
+      "resources/js/Pages/Blog/Blog.vue",
       "resources/js/Pages/Booking/Create.vue",
       "resources/js/Pages/Booking/Edit.vue",
       "resources/js/Pages/Booking/Overview.vue",
+      "resources/js/Pages/Buddies/Overview.vue",
       "resources/js/Pages/Buddies/Overview.vue",
       "resources/js/Pages/Contact/Contact.vue",
       "resources/js/Pages/Contact/Contact1.vue",
@@ -624,6 +629,7 @@
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
       "resources/js/Pages/Profile/Show.vue",
+      "resources/js/Pages/Team/AboutUs.vue",
       "resources/js/Pages/Team/AboutUs.vue",
       "resources/js/Pages/TermsOfService.vue",
       "resources/js/Pages/Welcome.vue"
