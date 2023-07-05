@@ -33,7 +33,6 @@ Route::get('/', function () {
 });
 
 Route::middleware([
-    'role:user|organisation|admin',
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
